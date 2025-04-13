@@ -47,6 +47,7 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "^22.14.1"
+    "@types/node": "^22.14.1",
+    "jest-fetch-mock": "^3.0.3"
   }
 }

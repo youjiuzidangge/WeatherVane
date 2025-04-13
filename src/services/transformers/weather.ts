@@ -1,5 +1,6 @@
-import {ForecastItem} from "@/types/weather";
-export const groupByDay = (list: ForecastItem[]): ForecastItem[] => {
+import { ForecastItem } from "@/types/weather";
+
+export const transformWeatherData = (list: ForecastItem[]): ForecastItem[] => {
     const days = new Map<string, ForecastItem>();
 
     list.forEach(item => {

@@ -15,7 +15,7 @@ export const CitySearch = ({ value, onChange }: Props) => {
     }, [onChange]);
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} name="city-search">
             <SearchContainer>
                 <SearchInput
                     name="city"

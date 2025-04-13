@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+# WeatherVane - 天气预报应用
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+一个使用 React + TypeScript 开发的现代化天气预报应用。
 
-## Available Scripts
+## 功能特点
 
-In the project directory, you can run:
+- 城市天气搜索
+- 7天天气预报展示
+- 响应式设计
+- 优雅的加载状态和错误处理
+- 现代化的 UI 设计
 
-### `npm start`
+## 快速开始
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 环境要求
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Node.js >= 14
+- npm >= 6
 
-### `npm test`
+### 安装依赖
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install
+```
+### 启动开发服务器
+```bash
+npm start
+```
+### 构建生产版本
+```bash
+npm run build
+```
 
-### `npm run build`
+### 运行测试
+```bash
+npm test
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 项目结构
+```bash
+src/
+├── apps/               # 应用入口
+├── constants/          # 常量定义
+├── features/           # 功能模块
+│   └── weather/            # 天气功能相关组件
+├── hooks/              # 自定义 Hooks
+├── layouts/            # 布局组件
+├── services/           # 服务层
+│   ├── api/                # API 调用
+│   └── transformers/       # 数据转换
+├── styles/             # 全局样式
+├── types/              # TypeScript 类型定义
+└── utils/              # 工具函数
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 技术亮点
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. 架构设计
+   - 采用特性驱动开发（FDD）的目录结构
+   - 服务层分离，提高代码复用性
+   - 自定义 Hooks 封装业务逻辑
 
-### `npm run eject`
+2. 性能优化
+   - 使用 AbortController 处理请求取消
+   - 状态管理优化，减少不必要的重渲染
+   - 样式使用 CSS-in-JS，按需加载
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. 用户体验
+   - 响应式设计，适配多种设备
+   - 优雅的加载状态和错误处理
+   - 平滑的动画效果
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. 代码质量
+   - TypeScript 类型检查
+   - ESLint + Prettier 代码规范
+   - Jest + Testing Library 单元测试
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### 待优化点
+1. 功能扩展
+   - 添加地理位置自动定位
+   - 支持多语言
+   - 添加天气详情页面
+   - 支持多城市收藏
+   - 性能优化
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. 性能优化
+   - 添加数据缓存机制
+   - 图片懒加载
+   - 组件代码分割
+   - 测试覆盖
 
-## Learn More
+3. 测试覆盖
+   - 增加集成测试
+   - 添加端到端测试
+   - 提高测试覆盖率
+   - 工程化
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. 工程化
+   - 引入 CI/CD 流程
+   - 添加自动化部署
+   - 优化构建配置
