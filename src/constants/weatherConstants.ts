@@ -1,3 +1,7 @@
-export const API_URL = process.env.REACT_APP_API_URL
-export const API_UNIT = process.env.REACT_APP_API_UNITS
-export const API_ID = process.env.REACT_APP_API_KEY
+if (!import.meta.env.VITE_API_KEY) {
+  throw new Error('API key is not defined in environment variables');
+}
+
+export const API_URL = import.meta.env.VITE_API_URL;
+export const API_UNIT = import.meta.env.VITE_API_UNITS;
+export const API_ID = import.meta.env.VITE_API_KEY;

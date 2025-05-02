@@ -3,51 +3,33 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^7.1.0",
-    "@emotion/styled": "^11.14.0",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/react": "^19.1.1",
-    "@types/react-dom": "^19.1.2",
-    "date-fns": "^4.1.0",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-scripts": "5.0.1",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "date-fns": "^2.30.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-tsparticles": "^2.12.2",
     "react-use": "^17.6.0",
-    "tsparticles": "^3.8.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+    "tsparticles": "^3.8.1"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "craco eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "start": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "devDependencies": {
-    "@types/node": "^22.14.1",
-    "jest-fetch-mock": "^3.0.3"
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.1.2",
+    "@testing-library/user-event": "^14.5.1",
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.4.1",
+    "@vitest/coverage-v8": "^3.1.2",
+    "jsdom": "^26.1.0",
+    "typescript": "^5.0.2",
+    "vite": "^6.3.4",
+    "vitest": "^3.1.2"
   }
 }
