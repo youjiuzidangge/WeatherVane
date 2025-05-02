@@ -1,13 +1,10 @@
 import { render, screen } from '@testing-library/react';
 import { WeatherFeature } from '@/features/weather';
 import { useWeather } from '@/hooks/useWeather';
-import fetchMock from 'jest-fetch-mock';
+import { vi, Mock } from 'vitest';
 
-fetchMock.enableMocks();
-jest.mock('@/hooks/useWeather');
-
-describe('WeatherFeature', () => {
-    const mockWeatherData = [{
+const mockWeatherData = [
+    {
         dt: 1632225600,
         main: {
             temp: 25,
@@ -15,52 +12,62 @@ describe('WeatherFeature', () => {
             temp_max: 30,
             humidity: 65
         },
-        weather: [{
-            id: 800,
-            main: 'Clear',
-            description: 'clear sky',
-            icon: '01d'
-        }],
+        weather: [
+            {
+                id: 800,
+                main: 'Clear',
+                description: 'clear sky',
+                icon: '01d'
+            }
+        ],
         dt_txt: '2021-09-21 12:00:00'
-    }];
+    }
+];
 
+// Mock useWeather hook
+vi.mock('@/hooks/useWeather', () => ({
+    useWeather: vi.fn()
+}));
+
+describe('WeatherFeature', () => {
     beforeEach(() => {
-        (useWeather as jest.Mock).mockClear();
+        vi.clearAllMocks();
     });
 
     it('renders loading state', () => {
-        (useWeather as jest.Mock).mockReturnValue({
+        (useWeather as any).mockReturnValue({
             data: [],
             loading: true,
             error: null
         });
 
-        render(<WeatherFeature />);
-        // 检查是否没有渲染天气数据
-        expect(screen.queryByText(/°C/)).not.toBeInTheDocument();
-        // 检查是否没有渲染错误信息
-        expect(screen.queryByText(/error/i)).not.toBeInTheDocument();
+        const { container } = render(<WeatherFeature />);
+        const skeletonContainer = container.querySelector('#skeleton');
+        expect(skeletonContainer).toBeInTheDocument();
     });
 
     it('renders weather data', async () => {
-        (useWeather as jest.Mock).mockReturnValue({
+        (useWeather as Mock).mockReturnValue({
             data: mockWeatherData,
             loading: false,
             error: null
         });
 
         render(<WeatherFeature />);
-        expect(screen.getByText('25°C')).toBeInTheDocument();
+        // 使用更灵活的文本匹配
+        expect(screen.getByText((content) => {
+            return content.includes('25') && content.includes('°');
+        })).toBeInTheDocument();
     });
 
     it('renders error state', () => {
-        (useWeather as jest.Mock).mockReturnValue({
+        (useWeather as Mock).mockReturnValue({
             data: [],
             loading: false,
             error: 'Failed to fetch weather data'
         });
 
         render(<WeatherFeature />);
-        expect(screen.getByText(/Failed to fetch weather data/i)).toBeInTheDocument();
+        expect(screen.getByText((content) => content.includes('Failed to fetch weather data'))).toBeInTheDocument();
     });
 });

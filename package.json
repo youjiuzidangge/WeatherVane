@@ -30,6 +30,7 @@
     "jsdom": "^26.1.0",
     "typescript": "^5.0.2",
     "vite": "^6.3.4",
-    "vitest": "^3.1.2"
+    "vitest": "^3.1.2",
+    "vitest-fetch-mock": "^0.4.5"
   }
 }

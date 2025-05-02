@@ -1,8 +1,9 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CitySearch } from '@/features/weather/components/CitySearch';
+import { vi } from 'vitest';
 
 describe('CitySearch', () => {
-    const mockOnChange = jest.fn();
+    const mockOnChange = vi.fn();
 
     beforeEach(() => {
         mockOnChange.mockClear();

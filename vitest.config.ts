@@ -13,6 +13,11 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
     },
+    env: {
+      VITE_API_URL: 'https://api.openweathermap.org/data/2.5/forecast',
+      VITE_API_UNITS: 'metric',
+      VITE_API_KEY: 'test-api-key'
+    }
   },
   resolve: {
     alias: {

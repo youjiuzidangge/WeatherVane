@@ -30,7 +30,7 @@ export const WeatherFeature = () => {
             />
 
             {loading && (
-                <SkeletonGrid>
+                <SkeletonGrid id="skeleton">
                     {Array(5).fill(null).map((_, i) => (
                         <div key={i} />
                     ))}
